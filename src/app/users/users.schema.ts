@@ -1,4 +1,4 @@
-import { Prop, Schema } from '@nestjs/mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
 export type UserDocument = User & Document;
 
@@ -39,3 +39,5 @@ export class User {
   @Prop({ select: false }) // Avoid exposing tokens by default
   refreshToken?: string;
 }
+
+export const UserSchema = SchemaFactory.createForClass(User);
